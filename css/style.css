@@ -1,0 +1,329 @@
+:root{
+    --darkgreen: #1e3932;
+    --green: #008248;
+    --fadedgreen: #d4e9e2;
+    --whitegreened: #f1f8f6;
+    --whitegreyed: #f3f1e7;
+    --black: #000;
+}
+
+*, ::after, ::before{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+}
+
+h1,h3,h4,h5{
+    margin-top: 0;
+}
+
+.container{
+    padding: 25px 0 0 0;
+}
+
+.col-3-container{
+    margin: 0 200px;
+    padding: 100px 0;
+}
+
+/*Main-nav*/
+nav, .nav-logo-group, .side-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo{
+    height: 51px;
+    width: 51px;
+}
+
+nav ul{
+    padding-left: 0;
+}
+
+nav ul li{
+    display: inline;
+}
+
+.menu-burger{
+    display: none;
+}
+
+/*Sticky banner*/
+.sticky-rewards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background: var(--darkgreen);
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.sticky-rewards button{
+    display: none;
+}
+
+.sticky-rewards h4{
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0;
+}
+
+/*Hero Banner*/
+#banner{
+    background-image: url(../Images/pexels-jason-villanueva-851555.jpg);
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.hero-content{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+/*3 col design*/
+.title-centered{
+    text-align: center;
+}
+
+.container-flex-3{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.col-3-item{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 33.33%;
+}
+
+/*Getting Started*/
+.number-circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid black;
+    aspect-ratio: 1 / 1;
+}
+
+/*Tab for free*/
+#ForFree{
+    background: var(--whitegreened);
+}
+
+.tab-navigation{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.tab-navigation li{
+    display: inline;
+    cursor: pointer;
+    width: 20%;
+    padding: 20px;
+    text-align: center;
+}
+
+.tab-navigation li.active{
+    position: relative;
+    font-weight: 900;
+}
+
+.tab-navigation li.active::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left:0;
+    height: 4px;
+    background: green;
+    width: 100%;
+}
+
+.tab-container{
+    position: relative;
+    background: var(--fadedgreen);
+    box-shadow: inset 0 7px 9px -7px rgba(0,0,0,.14);
+    height: 300px;
+    text-align: center;
+}
+
+.tab-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.tab-item.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.tab-item img{
+    width: 50%;
+}
+
+.tab-item-content{
+    text-align: left;
+    width: 50%;
+}
+
+/*2 col design*/
+.container-flex-2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.col-2-item{
+    display: flex;
+    width: 40%;
+}
+
+.cash-title{
+    width: 20%;
+}
+
+/*cash*/
+.container:first-child .container-flex-2 {
+    border-bottom: 1px solid grey;
+}
+
+/*mobile*/
+@media (max-width: 1024px) {
+    .col-2-item{
+        display: flex;
+        width: 50%;
+    }
+    
+    .cash-title{
+        width: 100%;
+    }
+  }
+@media (max-width: 768px) {
+    #logo{
+        height: 40px;
+        width: 40px;
+    }
+    .main-nav, .side-buttons{
+        display: none;
+    }
+
+    .menu-burger{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+        position: relative;
+        padding: 20px;
+        width: 20px;
+        height: 18px;
+        box-sizing: content-box;
+        -webkit-transition: 0.3s;
+        transition: all 0.3s;
+    }
+
+    .menu-burger span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 4px;
+        background: #757575;
+        position: relative;
+        opacity: 1;
+    }
+
+    .circle{
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        z-index: -1;
+        width: 35px;
+        height: 35px;
+    }
+
+    .menu-burger circle{
+        fill: #f0f0f0;
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .menu-burger:hover circle{
+        opacity: 1;
+        transform: scale(1);
+    } 
+
+    .sticky-rewards button{
+        display: block;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        background: none;
+        color: #fff;
+        font-weight: 700;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .container-flex-3{
+        flex-direction: column;
+    }
+
+    .col-3-item{
+        flex-direction: row;
+        text-align: left;
+        width: 100%;
+    }
+
+    .tab-navigation{
+        max-width: 100%;
+    }
+
+    .tab-container{
+        height: 530px;
+    }
+    
+    .tab-item{
+        flex-direction: column;
+    }
+    .tab-item img{
+        width: 100%;
+    }
+    
+    .tab-item-content{
+        text-align: center;
+        width: 100%;
+    }
+  }
